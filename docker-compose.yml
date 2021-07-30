@@ -1,0 +1,20 @@
+version: "2"
+services:
+  totem-doacao-atack:
+    image: pipekung/node-oracle
+    container_name: totem-doacao-atack
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 9094:3000
+    command: bash -c "npm install -g nodemon && npm run dev"
+    networks:
+      - "appnetatck"
+networks:
+  appnetatck:
+      ipam:
+          driver: default
+          config:
+              - subnet: "172.13.231.0/24
